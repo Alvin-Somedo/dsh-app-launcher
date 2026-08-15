@@ -1,0 +1,20 @@
+# dsh-app-launcher bundle patch — dedicated app window for the Web GUI.
+#
+# Applied as a profile bundle layer (after @deepseek-ai/dsh-base and
+# @deepseek-ai/dsh-web-app, before the profile's own cordis.patch.yml).
+#
+# The row injects `webServer`, so it activates only after the server binds;
+# the plugin then opens the GUI in an app window and requests `appExit` when
+# that window closes. Override any key from the profile's cordis.patch.yml by
+# targeting this id, e.g.:
+#   - id: app-launcher
+#     config:
+#       openOnStart: false
+- insert:
+    - id: app-launcher
+      name: "dsh-app-launcher"
+      config:
+        enabled: true
+        openOnStart: true
+        exitOnClose: true
+        createShortcut: true
