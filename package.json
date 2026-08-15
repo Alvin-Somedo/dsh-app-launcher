@@ -1,27 +1,27 @@
 {
-    "name":  "dsh-app-launcher",
-    "version":  "0.0.1",
-    "description":  "Open the DSH Web GUI in a dedicated browser app window; closing the window shuts down DSH gracefully (ctx.appExit). A dsh profile bundle.",
-    "type":  "module",
-    "main":  "lib/index.js",
-    "exports":  {
-                    ".":  "./lib/index.js"
-                },
-    "files":  [
-                  "lib",
-                  "cordis.patch.yml"
-              ],
-    "license":  "MIT",
-    "dsh":  {
-                "bundle":  {
-                               "patch":  "./cordis.patch.yml"
-                           }
-            },
-    "publishConfig":  {
-                          "registry":  "https://registry.npmjs.org/"
-                      },
-    "repository":  {
-                       "type":  "git",
-                       "url":  "git+https://github.com/Alvin-Somedo/dsh-app-launcher.git"
-                   }
+    "name": "dsh-app-launcher",
+    "version": "0.0.1",
+    "description": "Open the DSH Web GUI in a dedicated browser app window; closing the window shuts down DSH gracefully (ctx.appExit). A dsh profile bundle.",
+    "type": "module",
+    "main": "lib/index.js",
+    "exports": {
+        ".": "./lib/index.js"
+    },
+    "files": [
+        "lib",
+        "cordis.patch.yml"
+    ],
+    "license": "MIT",
+    "dsh": {
+        "bundle": {
+            "patch": "./cordis.patch.yml"
+        }
+    },
+    "publishConfig": {
+        "registry": "https://registry.npmjs.org/"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Alvin-Somedo/dsh-app-launcher.git"
+    }
 }
