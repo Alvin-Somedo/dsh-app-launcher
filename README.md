@@ -21,7 +21,7 @@ DSH 进程(`appExit`),npx/cmd 包装进程随之自动结束;Windows 下默认�
 dsh plugin --profile web add github:Alvin-Somedo/dsh-app-launcher
 ```
 
-### 从 npm 安装(还未 publish)
+### 从 npm 安装
 
 ```bash
 dsh plugin --profile web add dsh-app-launcher
