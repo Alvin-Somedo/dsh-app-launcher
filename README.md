@@ -9,7 +9,13 @@ DSH 进程(`appExit`),npx/cmd 包装进程随之自动结束;Windows 下默认�
 1. web 服务器绑定成功(`webServer` 服务出现)后,用 **专用浏览器配置目录**
    (`<DSH_HOME>/app-window/<browser>`)打开 Chrome/Edge 应用窗口,不影响日常浏览器;
 2. 关闭该窗口 → 插件调用 `appExit(0)` → DSH 进程优雅退出(先 dispose 整棵树);
-3. Windows: `createShortcut`(默认开启)自动生成桌面快捷方式(详见下方)。
+3. Windows: `createShortcut`(默认开启)自动生成桌面快捷方式(详见下方);
+4. `disableSpellcheck`(默认开启):应用窗口里不再出现红色拼写波浪线——注入页面的
+   脚本把输入框的 `spellcheck` 置为 `false`(随界面重渲染自动维持),并把配置目录里
+   "在网页上输入文字时检查是否有拼写错误"总开关对应的偏好设为关闭;
+5. `rememberWindow`(默认开启):记住应用窗口的大小和位置——页面探针定期把窗口
+   几何(`screenX/screenY/outerWidth/outerHeight`)上报给本地路由并落盘,下次启动
+   用 `--window-size/--window-position` 原样恢复。
 
 ## 安装
 
@@ -41,6 +47,9 @@ dsh plugin --profile web add dsh-app-launcher
     exitOnClose: true   # 关窗即退出 DSH
     browser: auto       # auto | chrome | edge
     # profileDir: C:\custom\profile   # 自定义浏览器配置目录
+    disableSpellcheck: true  # 默认开启:应用窗口关闭拼写检查(页面级 spellcheck=false + 配置目录偏好);false = 关闭
+    rememberWindow: true    # 默认开启:记住窗口大小/位置,下次启动恢复;false = 关闭
+    # windowStateFile: ...   # 窗口几何状态文件,默认 <DSH_HOME>/app-window/window-state.json
     createShortcut: true  # 默认开启:启动时自动在桌面创建"隐藏启动 DSH"快捷方式(仅 Windows);false = 关闭
     # shortcutName: DSH        # 快捷方式名(不含 .lnk),默认 DSH
     # launcherDir: ...         # 生成的 start-dsh.vbs / dsh.ico 存放目录,默认 <DSH_HOME>/launcher

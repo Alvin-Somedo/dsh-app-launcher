@@ -5,11 +5,14 @@
 #
 # The row injects `webServer`, so it activates only after the server binds;
 # the plugin then opens the GUI in an app window and requests `appExit` when
-# that window closes. Override any key from the profile's cordis.patch.yml by
+# that window closes. It also disables browser spellcheck in the app window
+# (disableSpellcheck) and remembers window size/position across restarts
+# (rememberWindow). Override any key from the profile's cordis.patch.yml by
 # targeting this id, e.g.:
 #   - id: app-launcher
 #     config:
 #       openOnStart: false
+#       rememberWindow: false
 - insert:
     - id: app-launcher
       name: "dsh-app-launcher"
