@@ -58,11 +58,14 @@ dsh plugin --profile web add dsh-app-launcher
 
 `createShortcut`(默认开启)会生成:
 
-- `<DSH_HOME>/launcher/start-dsh.vbs` — 隐藏启动 `npx --yes @deepseek-ai/dsh web`;
+- `<DSH_HOME>/launcher/start-dsh.vbs` — 隐藏启动 `npx --yes @deepseek-ai/dsh web --no-open`
+  (`--no-open` 阻止 DSH 另开默认浏览器,窗口由插件打开);
 - `<DSH_HOME>/launcher/dsh.ico` — 内置的 DSH 图标;
 - 桌面 `DSH.lnk` — 指向 wscript + 上面的 vbs。
 
-已存在的文件/快捷方式**不会被覆盖**(生成时会跳过)。桌面快捷方式只负责"不打开终端也能启动";窗口打开与关窗退出仍由插件完成。
+`dsh.ico` 与桌面 `DSH.lnk` 已存在时**不会被覆盖**(生成时会跳过);`start-dsh.vbs`
+内嵌插件版本标记,升级后下次启动发现版本不一致会自动重建,因此启动命令的调整随升级自动生效。
+桌面快捷方式只负责"不打开终端也能启动";窗口打开与关窗退出仍由插件完成。
 
 ## 卸载
 

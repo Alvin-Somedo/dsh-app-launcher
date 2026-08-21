@@ -1,6 +1,6 @@
 {
     "name": "dsh-app-launcher",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "description": "Open the DSH Web GUI in a dedicated browser app window; closing the window shuts down DSH gracefully (ctx.appExit). A dsh profile bundle.",
     "type": "module",
     "main": "lib/index.js",
